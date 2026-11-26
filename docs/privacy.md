@@ -2,7 +2,7 @@
 
 This policy covers version 0.2.0 of the SiYuan desktop plugin provided by Yunnan Liandi Technology Co., Ltd. The plugin uses the SiYuan command-line program on your computer to work with the workspace you select in a local ChatGPT or Codex conversation.
 
-[Privacy policy for version 0.1.1](https://github.com/siyuan-note/siyuan-openai-plugin/blob/181f8db4465a2c9bc59749e719a95e3f1f670090/docs/privacy.md) · [SiYuan Privacy Policy](https://b3log.org/siyuan/en/privacy.html)
+[SiYuan Privacy Policy](https://b3log.org/siyuan/en/privacy.html)
 
 ## Data used by the plugin
 

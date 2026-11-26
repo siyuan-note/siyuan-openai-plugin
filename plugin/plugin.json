@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "siyuan",
-  "version": "0.1.1",
-  "description": "Connect to an authorized SiYuan workspace on this computer and use its MCP tools.",
+  "version": "0.2.0",
+  "description": "Search, read, and edit a selected local workspace using the SiYuan CLI.",
   "author": {
     "name": "Yunnan Liandi Technology Co., Ltd.",
     "url": "https://b3log.org/siyuan/en/"
@@ -10,24 +10,17 @@
   "homepage": "https://b3log.org/siyuan/en/",
   "repository": "https://github.com/siyuan-note/siyuan-openai-plugin",
   "license": "AGPL-3.0-or-later",
-  "keywords": [
-    "notes",
-    "search",
-    "productivity"
-  ],
+  "keywords": ["notes", "search", "productivity"],
   "extensions": {
     "com.openai": {
+      "requires_local_executor": true,
       "interface": {
         "displayName": "SiYuan",
         "shortDescription": "Work with your SiYuan notes",
-        "longDescription": "Connect to the SiYuan workspace you authorize on this computer. Search, create, edit, organize, and manage notes using the MCP tools enabled in that workspace. Authorization can be revoked in SiYuan. Note content used in a conversation is shared with OpenAI as conversation context.",
+        "longDescription": "Use the SiYuan CLI installed on this computer to search, read, create, and edit notes in a workspace you select. Use a local conversation and choose the workspace when prompted. Note content used in a conversation is shared with OpenAI as conversation context.",
         "developerName": "Yunnan Liandi Technology Co., Ltd.",
         "category": "Productivity",
-        "capabilities": [
-          "Search and read notes",
-          "Create and edit notes",
-          "Manage workspace content"
-        ],
+        "capabilities": ["Search and read notes", "Create and edit notes"],
         "websiteURL": "https://b3log.org/siyuan/en/",
         "supportURL": "https://github.com/siyuan-note/siyuan/issues",
         "privacyPolicyURL": "https://github.com/siyuan-note/siyuan-openai-plugin/blob/main/docs/privacy.md",
@@ -40,61 +33,8 @@
         "composerIcon": "./assets/siyuan.png",
         "logo": "./assets/siyuan.png"
       },
-      "review": {
-        "test_cases": {
-          "positive": [
-            {
-              "description": "Search the authorized workspace",
-              "prompt": "Find my SiYuan notes that mention the cobalt launch.",
-              "tools_triggered": "search__fulltext",
-              "expected_behavior": "Return matching notes from the authorized workspace and their source block identifiers."
-            },
-            {
-              "description": "Read a note found by search",
-              "prompt": "Read the cobalt launch checklist, tell me its rollout date, and cite the original note.",
-              "tools_triggered": "search__fulltext, block__get_kramdown",
-              "expected_behavior": "Report the recorded date 12 February 2027 and cite the original SiYuan note."
-            },
-            {
-              "description": "Create a document in the review notebook",
-              "prompt": "Create a document named Plugin Live Notes in the Planning notebook and add the sentence The first QA review is scheduled.",
-              "tools_triggered": "notebook__list, document__create",
-              "expected_behavior": "Create one document in Planning and report its SiYuan identifier."
-            },
-            {
-              "description": "Append a block to the review document",
-              "prompt": "Append the sentence QA approved the checklist to Plugin Live Notes in SiYuan.",
-              "tools_triggered": "document__search_docs, block__append",
-              "expected_behavior": "Add a new block to the selected document while keeping the initial paragraph."
-            },
-            {
-              "description": "Read the edited document",
-              "prompt": "Show me the exact current content of Plugin Live Notes in SiYuan.",
-              "tools_triggered": "document__search_docs, block__get_kramdown",
-              "expected_behavior": "Return the initial paragraph and the appended paragraph, and cite the source."
-            }
-          ],
-          "negative": [
-            {
-              "description": "Reject a read from another workspace",
-              "prompt": "Read the Private Draft using its document ID from the other workspace.",
-              "expected_behavior": "No content from the other workspace is returned."
-            },
-            {
-              "description": "Respect a revoked connection",
-              "prompt": "After revoking the plugin connection in SiYuan, search my notes for cobalt launch.",
-              "expected_behavior": "No note data are returned and the bridge reports the connection needs attention."
-            },
-            {
-              "description": "Respect the workspace tool exposure policy",
-              "prompt": "After disabling the Block tool for external MCP in SiYuan, append a paragraph to Plugin Live Notes using the exposed Block tool.",
-              "expected_behavior": "The Block actions are absent from the tool list and an attempt to call the previously known Block action is refused."
-            }
-          ]
-        }
-      },
       "publication": {
-        "release_notes": "Connect to an authorized local SiYuan workspace and use its exposed MCP read and write operations. Use the SiYuan icon with transparent padding."
+        "release_notes": "Search, read, and edit notes with the installed SiYuan CLI in a local desktop conversation."
       }
     }
   }

@@ -2,7 +2,7 @@
 
 These terms apply to your use of version 0.2.0 of the SiYuan desktop plugin provided by Yunnan Liandi Technology Co., Ltd. Your use of SiYuan and OpenAI products is also governed by the agreements that apply to those products and your account.
 
-[Terms for version 0.1.1](https://github.com/siyuan-note/siyuan-openai-plugin/blob/181f8db4465a2c9bc59749e719a95e3f1f670090/docs/terms.md) · [SiYuan User Agreement](https://b3log.org/siyuan/en/eula.html) · [OpenAI Terms of Use](https://openai.com/policies/terms-of-use/) · [OpenAI Services Agreement](https://openai.com/policies/services-agreement/)
+[SiYuan User Agreement](https://b3log.org/siyuan/en/eula.html) · [OpenAI Terms of Use](https://openai.com/policies/terms-of-use/) · [OpenAI Services Agreement](https://openai.com/policies/services-agreement/)
 
 ## Workspace access and use
 

@@ -1,48 +1,29 @@
-# SiYuan Desktop only 送审材料
+# SiYuan 桌面技能送审准备
 
-## 资格申请
+## 提交路径
 
-用提交插件的 OpenAI Platform 组织 ID 联系现有 OpenAI 对接人，申请 Local MCP submission allowlist。发布者名称以组织内已核验身份为准。组织拥有者有提交权限，其他成员需要 Apps Management Write。资格确认后，从 [插件提交入口](https://platform.openai.com/plugins) 创建 Desktop only 本地 MCP 草稿，依照官方本地流程选择 Skills only，并在初次 ZIP 中包含 `mcp.json` 和本地服务器。通过检查、提交审核并获批后，可以在后台发布。 [Desktop only 指南](https://developers.openai.com/plugins/deploy/desktop-only) · [提交与发布](https://developers.openai.com/plugins/deploy/submission)
+当前候选版为 `0.2.0`，通过本地会话及思源内置 CLI 运行。插件 ZIP 包含便携版清单、SiYuan 技能和图标。清单设置了 `extensions.com.openai.requires_local_executor`。
 
-可发给对接人的英文说明如下。发送前填入实际组织 ID 和发布主体。
+用实际提交的 OpenAI Platform 组织核对发布者身份与纯技能桌面标记的使用资格。当前已看到 `Personal` 组织。官方标准流程要求核对发布人身份，若后台拒绝桌面标记，按桌面插件指南向 OpenAI 确认该组织的提交权限。 [桌面插件指南](https://developers.openai.com/plugins/deploy/desktop-only#plugins-without-an-mcp-server) · [标准提交流程](https://developers.openai.com/plugins/deploy/submission)
 
-> Subject: Local MCP submission access for SiYuan
->
-> We are preparing an official Desktop only plugin for SiYuan. It connects to SiYuan running on the same computer via a bundled stdio MCP server. It covers SiYuan's exposed workspace read and write operations through individually named MCP tools. Users authorize a workspace in SiYuan, control its tool exposure, and can revoke access there. The workspace needs no public endpoint.
->
-> Could you confirm whether our organization is eligible and enable local MCP submissions for organization [ORGANIZATION_ID]? Our publishing entity is [VERIFIED_ENTITY]. Please also confirm any desktop-specific first-submission requirements, including supported runtime and platform expectations and how to provide the test workspace and walkthrough.
+## 目录与演示
 
-## 目录材料
+- 以提供 `siyuan` 命令的思源桌面版为使用前提。在本地会话显式选择一个工作空间，在该空间内读写普通笔记。
+- 清单使用现行版本的公开文档。 [隐私政策](https://github.com/siyuan-note/siyuan-openai-plugin/blob/main/docs/privacy.md) · [使用条款](https://github.com/siyuan-note/siyuan-openai-plugin/blob/main/docs/terms.md)
+- 使用 [合成笔记](fixtures.json)和[桌面录屏分镜](desktop-recording.md)录制实际操作。桌面界面实录待完成。
 
-- 显示名 `SiYuan`，分类 `Productivity`，英语文案和参考图标已放入 `plugin.json`。用后台核验身份核对发布者名称。复用思源官网与 GitHub issue 地址。
-- 现有英文隐私政策描述数据始终保存在设备上。发布前由思源确认并公开适用于插件的条款及隐私政策链接，再填入清单。可按下列披露起草专门页面或在现有政策中加入适用条款。 [思源英文隐私政策](https://b3log.org/siyuan/en/privacy.html) · [OpenAI 插件隐私要求](https://developers.openai.com/plugins/plugin-guidelines#4-privacy)
-- 清单附带 5 个正向用例、3 个反向用例及发行说明，涵盖搜索、读取、新建、写入、撤销与工具设置。通用 MCP 审核要求提供视频与可复现的测试环境。向对接人确认 Desktop only 在后台的录入方式。 [审核材料要求](https://developers.openai.com/plugins/deploy/submission#3-submit-for-review)
-- 发布包基于已验证版本构建，核对工作空间访问范围、支持系统、最低思源版本，以及 Node 启动策略。在验证过的平台标注提交流程的可用性。确定正式对应源码交付地址。
+## Windows 验证
 
-## 插件隐私披露草稿
+2026-11-26 使用安装版的 `siyuan 3.9.0-alpha.2`，在独立的合成工作空间实测创建笔记本和文档、全文搜索、追加、读回及拒绝追加到不存在的目标。也在同一合成空间启动真实的思源内核，验证内核刷新后可见 CLI 写入，CLI 可见随后通过内核写入的内容，且两次写入均被保留。
 
-This plugin connects the ChatGPT desktop app to a SiYuan workspace running on the same computer. Tool requests can include search terms, note identifiers, note content, and instructions for editing or managing workspace data. Tool responses can include document identifiers, titles, contents, and results of workspace operations. In a ChatGPT or Codex conversation, tool requests and results are handled by OpenAI under the policies and data controls that apply to that account and conversation. Features such as sync and external fetches can send data to the services configured or selected in SiYuan.
+这一验证覆盖交替读写。桌面应用随附的运行时已在隔离配置中安装该 ZIP，并发现其中的 SiYuan 技能。
 
-The bridge connects directly to SiYuan on this computer. It stores local connection settings and credentials and keeps no search history or separate copy of note contents. You can revoke the connection in SiYuan or run the plugin's disconnect command. Connecting another workspace requires separate authorization. Revocation stops subsequent tool requests. Use your ChatGPT account or workspace controls to manage retention of conversation content already shared with OpenAI.
+同日将 Windows ChatGPT 桌面端的测试安装更新到 `0.2.0`，并在 Codex 本地会话中选中 SiYuan 技能，用一个合成工作空间验证了以下操作。会话记录显示命令均显式指定了测试工作空间和独立配置目录。
 
-[OpenAI Privacy Policy](https://openai.com/policies/privacy-policy/) · [ChatGPT Data Controls](https://help.openai.com/en/articles/7730893-data-controls-faq) · [SiYuan support](https://github.com/siyuan-note/siyuan/issues)
+- 全文搜索 `cobalt launch`，返回 Launch Checklist 和思源来源链接。
+- 使用 Kramdown 读取原文，返回上线日期 2027 年 2 月 12 日。
+- 在 Planning 新建 CLI Acceptance Notes，独立核对文档 ID 和首段正文。
+- 追加一句话并读回两段正文，独立确认首段完整保留。
+- 对不存在的文档 ID 发出追加请求。CLI 查找返回 `tree not found`，会话停止写入。独立比对拒写前后的文档列表、实际时间戳和两篇笔记正文。
 
-## 桌面审核操作
-
-用两个隔离的思源工作空间导入 `fixtures.json` 中的合成笔记，根据 workspace 和 notebook 字段放入对应位置。真实环境应记录实际文档 ID，若与清单的示例 ID 不同，提交前替换测试 prompt。只授权 review 工作空间。完成接入后，用干净的 ChatGPT 桌面环境依次验证清单中的场景。
-
-录屏建议依次展示安装、授权当前工作空间、搜索 cobalt launch、读取原文、创建文档、追加并读回内容。再展示工具禁用、另一工作空间读取失败，以及撤销后查询失败。切换后独立授权新工作空间，确认只返回该空间的结果。上传对审核员可访问的录像，按平台指引提供可重复安装的思源构建、示例数据和环境说明。
-
-## Windows 桌面验收
-
-2026-11-26 使用 Windows 桌面应用 26.1120.6357.0 和思源 `16532620120a8b3a7f0c9d80506f6c9263dd7bd6`。从 ZIP 安装后，确认缓存中的桥接文件与打包文件一致。两个真实的独立工作空间通过 OAuth 授权、31 个原生工具和 177 个具名操作的清单核对、代表性读写、工具禁用、刷新、隔离和撤销验证。
-
-桌面会话通过已安装插件读取了合成笔记的属性，追加标题并读回大纲。独立的思源内核确认正文中有这次写入。撤销授权后，同一会话读取被拒绝。
-
-送审候选版为 `0.1.1`。封面与对话图标使用豆包插件同款 512 × 512 PNG，图形左右各留出 44 px 透明边距。新版 ZIP 已重装并与桌面缓存校验，桌面应用随附运行时和真实思源集成测试通过。插件 ZIP 的 SHA-256 为 `5bc17d895fae86a3a973feb3099cc2fdf2840ac7e3656bcc69dc7182f6f44383`。
-
-## 提交前待确认
-
-- 用拟提交的组织确认本地 MCP 提交资格和发布者身份。
-- 发布适用于插件的隐私政策与服务条款，补齐目录链接。
-- 提供审核员可访问的桌面录屏链接，在提交后台处理检查结果。
+当前插件 ZIP 的 SHA-256 为 `4b5187ff1aa168441178b080f673d0de8f39688a06528b4f40f8f7b7516f8d68`。桌面验收后，包内清单补齐了公开的隐私政策与使用条款链接。已核对技能、图标和许可证的文件内容。
