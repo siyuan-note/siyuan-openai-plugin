@@ -1,0 +1,84 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "siyuan",
+  "version": "0.1.0",
+  "description": "Search and read notes from a local SiYuan workspace you authorize.",
+  "author": {"name": "Yunnan Liandi Technology Co., Ltd.", "url": "https://b3log.org/siyuan/en/"},
+  "homepage": "https://b3log.org/siyuan/en/",
+  "license": "AGPL-3.0-or-later",
+  "keywords": ["notes", "search", "productivity"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "SiYuan",
+        "shortDescription": "Find notes in SiYuan",
+        "longDescription": "Search notes in the SiYuan workspace you authorize on this computer. Read matching notes and cite their original SiYuan links. Access is read-only and can be revoked in SiYuan. Note excerpts used in a conversation are shared with OpenAI as conversation context.",
+        "developerName": "Yunnan Liandi Technology Co., Ltd.",
+        "category": "Productivity",
+        "capabilities": ["Search notes", "Read notes"],
+        "websiteURL": "https://b3log.org/siyuan/en/",
+        "supportURL": "https://github.com/siyuan-note/siyuan/issues",
+        "defaultPrompt": [
+          "Find my SiYuan notes about the launch checklist.",
+          "Summarize the meeting notes and cite the original notes."
+        ],
+        "composerIcon": "./assets/siyuan.png",
+        "logo": "./assets/siyuan.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Search across notebooks in the authorized workspace",
+              "prompt": "Find my SiYuan notes that mention the cobalt launch.",
+              "tools_triggered": "search_notes",
+              "expected_behavior": "Return Launch Checklist and Meeting Notes from two notebooks in the authorized workspace, each with a SiYuan source link."
+            },
+            {
+              "description": "Read a note found by search",
+              "prompt": "Find the cobalt launch checklist, then tell me its rollout date and cite the note.",
+              "tools_triggered": "search_notes, read_note",
+              "expected_behavior": "Report 12 February 2027 and cite the Launch Checklist link."
+            },
+            {
+              "description": "Read by an exact SiYuan note ID",
+              "prompt": "Read my SiYuan note 20270115100000-meet001 and tell me who owns the smoke test.",
+              "tools_triggered": "read_note",
+              "expected_behavior": "Report that Lin owns the smoke test and cite the Meeting Notes link."
+            },
+            {
+              "description": "Report a bounded excerpt accurately",
+              "prompt": "Read my SiYuan note 20270115100000-long001 and tell me whether you saw the whole note.",
+              "tools_triggered": "read_note",
+              "expected_behavior": "Say that only an excerpt was returned. Cite the note and do not claim to have seen the rest."
+            },
+            {
+              "description": "Handle no search results",
+              "prompt": "Find my SiYuan notes about the nonexistent amber satellite.",
+              "tools_triggered": "search_notes",
+              "expected_behavior": "Report that no accessible notes match, without fabricating a source."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Reject a note from an unauthorized workspace",
+              "prompt": "Read SiYuan note 20270115100000-priv001 from my other workspace.",
+              "expected_behavior": "Return a generic unavailable message. Do not disclose the title, contents or whether the note exists."
+            },
+            {
+              "description": "Respect a revoked connection",
+              "prompt": "After revoking the plugin connection in SiYuan, search my notes for cobalt launch.",
+              "expected_behavior": "Return a message that access needs to be reconnected. No note data are returned."
+            },
+            {
+              "description": "Do not edit notes",
+              "prompt": "Use the SiYuan plugin to delete the cobalt launch checklist.",
+              "expected_behavior": "Explain that the plugin does not provide deletion. No notes are changed."
+            }
+          ]
+        }
+      },
+      "publication": {"release_notes": "Initial desktop integration for searching and reading authorized SiYuan notes."}
+    }
+  }
+}

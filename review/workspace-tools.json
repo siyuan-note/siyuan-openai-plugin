@@ -1,0 +1,1490 @@
+{
+  "siyuanRevision": "d08ac46c240d857417bc5fdba31167ad8afc3986",
+  "tools": [
+    {
+      "name": "asset",
+      "sourceFile": "kernel/mcp/tools/asset.go",
+      "dynamicEffects": true,
+      "actions": [
+        {
+          "name": "clean",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "create_html",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "stat",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "unused",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "upload",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "attr",
+      "sourceFile": "kernel/mcp/tools/attr.go",
+      "actions": [
+        {
+          "name": "batch-get",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "get",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "set",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bazaar",
+      "sourceFile": "kernel/mcp/tools/bazaar.go",
+      "actions": [
+        {
+          "name": "disable",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "enable",
+          "declaredEffects": [
+            "LocalRead",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "install",
+          "declaredEffects": [
+            "DataEgress",
+            "LocalRead",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "install_local",
+          "declaredEffects": [
+            "LocalRead",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "installed",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "list",
+          "declaredEffects": [
+            "DataEgress",
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "package_local",
+          "declaredEffects": [
+            "LocalRead",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "prepare_project",
+          "declaredEffects": [
+            "LocalRead",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "project_status",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "readme",
+          "declaredEffects": [
+            "DataEgress",
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "restore_project",
+          "declaredEffects": [
+            "LocalRead",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "uninstall",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "update",
+          "declaredEffects": [
+            "DataEgress",
+            "LocalRead",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "update_all",
+          "declaredEffects": [
+            "DataEgress",
+            "LocalRead",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "updates",
+          "declaredEffects": [
+            "DataEgress",
+            "LocalRead"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "block",
+      "sourceFile": "kernel/mcp/tools/block.go",
+      "actions": [
+        {
+          "name": "append",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "batch_get",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "batch_kramdown",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "breadcrumb",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "delete",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "dom",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "get",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "get_children",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "get_kramdown",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "insert",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "move",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "prepend",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "tree_stat",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "update",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bookmark",
+      "sourceFile": "kernel/mcp/tools/bookmark.go",
+      "actions": [
+        {
+          "name": "labels",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "list",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "remove",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "rename",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dailynote",
+      "sourceFile": "kernel/mcp/tools/dailynote.go",
+      "actions": [
+        {
+          "name": "append",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "create",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "prepend",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "database",
+      "sourceFile": "kernel/mcp/tools/database.go",
+      "actions": [
+        {
+          "name": "clean",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "create",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "get",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "item_add",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "item_remove",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "item_update",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "items_add",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "items_update",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "key_add",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "key_remove",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "key_set_template",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "key_update",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "keys",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "render",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "search",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "unused",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "view_add",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "view_duplicate",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "view_field_move",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "view_filters_set",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "view_get",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "view_group_set",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "view_layout_set",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "view_move",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "view_remove",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "view_sorts_set",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "view_update",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "view_visibility_set",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "decision",
+      "sourceFile": "kernel/mcp/tools/decision.go",
+      "agentOnly": true,
+      "configDependent": true,
+      "actions": [
+        {
+          "name": "evaluate",
+          "declaredEffects": [
+            "DataEgress",
+            "ExternalCost",
+            "LocalRead"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "document",
+      "sourceFile": "kernel/mcp/tools/document.go",
+      "actions": [
+        {
+          "name": "create",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "delete",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "duplicate",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "get",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "info",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "list",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "move",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "rename",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "search_docs",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "export",
+      "sourceFile": "kernel/mcp/tools/export.go",
+      "dynamicEffects": true,
+      "actions": [
+        {
+          "name": "data",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "docx",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "html",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "md",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "md-zip",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "preview",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "sy",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "file",
+      "sourceFile": "kernel/mcp/tools/file.go",
+      "actions": [
+        {
+          "name": "copy",
+          "declaredEffects": [
+            "LocalRead",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "delete",
+          "declaredEffects": [
+            "LocalRead",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "edit",
+          "declaredEffects": [
+            "LocalRead",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "find",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "grep",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "list",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "read",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "rename",
+          "declaredEffects": [
+            "LocalRead",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "stat",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "write",
+          "declaredEffects": [
+            "LocalRead",
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "history",
+      "sourceFile": "kernel/mcp/tools/history.go",
+      "actions": [
+        {
+          "name": "clear",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "get",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "list",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "rollback",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "search",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "http_request",
+      "sourceFile": "kernel/mcp/tools/http_request.go",
+      "actions": [
+        {
+          "name": "delete",
+          "declaredEffects": [
+            "DataEgress",
+            "ExternalCost",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "get",
+          "declaredEffects": [
+            "DataEgress",
+            "ExternalCost",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "patch",
+          "declaredEffects": [
+            "DataEgress",
+            "ExternalCost",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "post",
+          "declaredEffects": [
+            "DataEgress",
+            "ExternalCost",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "put",
+          "declaredEffects": [
+            "DataEgress",
+            "ExternalCost",
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "image",
+      "sourceFile": "kernel/mcp/tools/image.go",
+      "dynamicEffects": true,
+      "actions": [
+        {
+          "name": "analyze",
+          "declaredEffects": [
+            "DataEgress",
+            "ExternalCost",
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "generate",
+          "declaredEffects": [
+            "DataEgress",
+            "ExternalCost",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "list",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "import",
+      "sourceFile": "kernel/mcp/tools/import.go",
+      "actions": [
+        {
+          "name": "data",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "md",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "sy",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "inbox",
+      "sourceFile": "kernel/mcp/tools/inbox.go",
+      "actions": [
+        {
+          "name": "convert",
+          "declaredEffects": [
+            "DataEgress",
+            "ExternalCost",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "get",
+          "declaredEffects": [
+            "DataEgress",
+            "ExternalCost"
+          ]
+        },
+        {
+          "name": "list",
+          "declaredEffects": [
+            "DataEgress",
+            "ExternalCost"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "log",
+      "sourceFile": "kernel/mcp/tools/log.go",
+      "agentOnly": true,
+      "actions": [
+        {
+          "name": "read",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "search",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "stat",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "tail",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mcp",
+      "sourceFile": "kernel/mcp/tools/mcp.go",
+      "agentOnly": true,
+      "actions": [
+        {
+          "name": "list",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "load",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "unload",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "memory",
+      "sourceFile": "kernel/mcp/tools/memory.go",
+      "agentOnly": true,
+      "configDependent": true,
+      "actions": [
+        {
+          "name": "disable",
+          "declaredEffects": [
+            "DataEgress",
+            "ExternalCost",
+            "LocalRead",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "forget",
+          "declaredEffects": [
+            "DataEgress",
+            "ExternalCost",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "get",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "list",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "remember",
+          "declaredEffects": [
+            "DataEgress",
+            "ExternalCost",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "update",
+          "declaredEffects": [
+            "DataEgress",
+            "ExternalCost",
+            "LocalRead",
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "notebook",
+      "sourceFile": "kernel/mcp/tools/notebook.go",
+      "actions": [
+        {
+          "name": "close",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "create",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "list",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "open",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "random_icon",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "remove",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "rename",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "set_icon",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "outline",
+      "sourceFile": "kernel/mcp/tools/outline.go",
+      "actions": [
+        {
+          "name": "get",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdf",
+      "sourceFile": "kernel/mcp/tools/pdf.go",
+      "dynamicEffects": true,
+      "actions": [
+        {
+          "name": "extract",
+          "declaredEffects": [
+            "LocalRead",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "list",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "preview",
+          "declaredEffects": [
+            "DataEgress",
+            "ExternalCost",
+            "LocalRead"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "question",
+      "sourceFile": "kernel/mcp/tools/question.go",
+      "agentOnly": true,
+      "actions": [
+        {
+          "name": ""
+        }
+      ]
+    },
+    {
+      "name": "ref",
+      "sourceFile": "kernel/mcp/tools/ref.go",
+      "actions": [
+        {
+          "name": "backlinks",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "mentions",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "refresh",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "repo",
+      "sourceFile": "kernel/mcp/tools/repo.go",
+      "dynamicEffects": true,
+      "actions": [
+        {
+          "name": "checkout",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "create",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "diff",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "file_export",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "file_get",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "file_open",
+          "declaredEffects": [
+            "LocalRead",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "file_rollback",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "list",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "purge",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "search",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "tag",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "untag",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "search",
+      "sourceFile": "kernel/mcp/tools/search.go",
+      "actions": [
+        {
+          "name": "asset",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "fulltext",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "getasset",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "semantic",
+          "declaredEffects": [
+            "DataEgress",
+            "ExternalCost",
+            "LocalRead"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "skill",
+      "sourceFile": "kernel/mcp/tools/skill.go",
+      "actions": [
+        {
+          "name": "install",
+          "declaredEffects": [
+            "DataEgress",
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "list",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "load",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "remove",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "rename",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "save",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "snippet",
+      "sourceFile": "kernel/mcp/tools/snippet.go",
+      "agentOnly": true,
+      "configDependent": true,
+      "actions": [
+        {
+          "name": "create",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "disable",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "enable",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "get",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "list",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "remove",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "replace",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "update",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sql",
+      "sourceFile": "kernel/mcp/tools/sql.go",
+      "actions": [
+        {
+          "name": "query",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "schema",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sync",
+      "sourceFile": "kernel/mcp/tools/sync.go",
+      "dynamicEffects": true,
+      "actions": [
+        {
+          "name": "download"
+        },
+        {
+          "name": "perform"
+        },
+        {
+          "name": "status"
+        },
+        {
+          "name": "upload"
+        }
+      ]
+    },
+    {
+      "name": "system",
+      "sourceFile": "kernel/mcp/tools/system.go",
+      "actions": [
+        {
+          "name": "current_time",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "version",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "workspace",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tag",
+      "sourceFile": "kernel/mcp/tools/tag.go",
+      "actions": [
+        {
+          "name": "list",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "remove",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "rename",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "template",
+      "sourceFile": "kernel/mcp/tools/template.go",
+      "actions": [
+        {
+          "name": "create",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "get",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "remove",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "render",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "save_as",
+          "declaredEffects": [
+            "LocalWrite"
+          ]
+        },
+        {
+          "name": "search",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "todo_write",
+      "sourceFile": "kernel/mcp/tools/todo.go",
+      "agentOnly": true,
+      "actions": [
+        {
+          "name": ""
+        }
+      ]
+    },
+    {
+      "name": "unzip",
+      "sourceFile": "kernel/mcp/tools/unzip.go",
+      "actions": [
+        {
+          "name": "",
+          "declaredEffects": [
+            "LocalRead",
+            "LocalWrite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "web_fetch",
+      "sourceFile": "kernel/mcp/tools/web_fetch.go",
+      "dynamicEffects": true,
+      "actions": [
+        {
+          "name": ""
+        }
+      ]
+    },
+    {
+      "name": "web_search",
+      "sourceFile": "kernel/mcp/tools/web_search.go",
+      "dynamicEffects": true,
+      "actions": [
+        {
+          "name": ""
+        }
+      ]
+    },
+    {
+      "name": "workspace",
+      "sourceFile": "kernel/mcp/tools/workspace.go",
+      "actions": [
+        {
+          "name": "info",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        },
+        {
+          "name": "list",
+          "declaredEffects": [
+            "LocalRead"
+          ]
+        }
+      ]
+    }
+  ]
+}
