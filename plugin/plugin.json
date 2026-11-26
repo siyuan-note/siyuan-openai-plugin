@@ -2,25 +2,38 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "siyuan",
   "version": "0.1.0",
-  "description": "Search and read notes from a local SiYuan workspace you authorize.",
-  "author": {"name": "Yunnan Liandi Technology Co., Ltd.", "url": "https://b3log.org/siyuan/en/"},
+  "description": "Connect to an authorized SiYuan workspace on this computer and use its MCP tools.",
+  "author": {
+    "name": "Yunnan Liandi Technology Co., Ltd.",
+    "url": "https://b3log.org/siyuan/en/"
+  },
   "homepage": "https://b3log.org/siyuan/en/",
+  "repository": "https://github.com/siyuan-note/siyuan-openai-plugin",
   "license": "AGPL-3.0-or-later",
-  "keywords": ["notes", "search", "productivity"],
+  "keywords": [
+    "notes",
+    "search",
+    "productivity"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "SiYuan",
-        "shortDescription": "Find notes in SiYuan",
-        "longDescription": "Search notes in the SiYuan workspace you authorize on this computer. Read matching notes and cite their original SiYuan links. Access is read-only and can be revoked in SiYuan. Note excerpts used in a conversation are shared with OpenAI as conversation context.",
+        "shortDescription": "Work with your SiYuan notes",
+        "longDescription": "Connect to the SiYuan workspace you authorize on this computer. Search, create, edit, organize, and manage notes using the MCP tools enabled in that workspace. Authorization can be revoked in SiYuan. Note content used in a conversation is shared with OpenAI as conversation context.",
         "developerName": "Yunnan Liandi Technology Co., Ltd.",
         "category": "Productivity",
-        "capabilities": ["Search notes", "Read notes"],
+        "capabilities": [
+          "Search and read notes",
+          "Create and edit notes",
+          "Manage workspace content"
+        ],
         "websiteURL": "https://b3log.org/siyuan/en/",
         "supportURL": "https://github.com/siyuan-note/siyuan/issues",
         "defaultPrompt": [
           "Find my SiYuan notes about the launch checklist.",
-          "Summarize the meeting notes and cite the original notes."
+          "Create a meeting note in my SiYuan workspace.",
+          "Summarize the meeting notes and cite the originals."
         ],
         "composerIcon": "./assets/siyuan.png",
         "logo": "./assets/siyuan.png"
@@ -29,56 +42,58 @@
         "test_cases": {
           "positive": [
             {
-              "description": "Search across notebooks in the authorized workspace",
+              "description": "Search the authorized workspace",
               "prompt": "Find my SiYuan notes that mention the cobalt launch.",
-              "tools_triggered": "search_notes",
-              "expected_behavior": "Return Launch Checklist and Meeting Notes from two notebooks in the authorized workspace, each with a SiYuan source link."
+              "tools_triggered": "search__fulltext",
+              "expected_behavior": "Return matching notes from the authorized workspace and their source block identifiers."
             },
             {
               "description": "Read a note found by search",
-              "prompt": "Find the cobalt launch checklist, then tell me its rollout date and cite the note.",
-              "tools_triggered": "search_notes, read_note",
-              "expected_behavior": "Report 12 February 2027 and cite the Launch Checklist link."
+              "prompt": "Read the cobalt launch checklist, tell me its rollout date, and cite the original note.",
+              "tools_triggered": "search__fulltext, block__get_kramdown",
+              "expected_behavior": "Report the recorded date 12 February 2027 and cite the original SiYuan note."
             },
             {
-              "description": "Read by an exact SiYuan note ID",
-              "prompt": "Read my SiYuan note 20270115100000-meet001 and tell me who owns the smoke test.",
-              "tools_triggered": "read_note",
-              "expected_behavior": "Report that Lin owns the smoke test and cite the Meeting Notes link."
+              "description": "Create a document in the review notebook",
+              "prompt": "Create a document named Plugin Live Notes in the Planning notebook and add the sentence The first QA review is scheduled.",
+              "tools_triggered": "notebook__list, document__create",
+              "expected_behavior": "Create one document in Planning and report its SiYuan identifier."
             },
             {
-              "description": "Report a bounded excerpt accurately",
-              "prompt": "Read my SiYuan note 20270115100000-long001 and tell me whether you saw the whole note.",
-              "tools_triggered": "read_note",
-              "expected_behavior": "Say that only an excerpt was returned. Cite the note and do not claim to have seen the rest."
+              "description": "Append a block to the review document",
+              "prompt": "Append the sentence QA approved the checklist to Plugin Live Notes in SiYuan.",
+              "tools_triggered": "document__search_docs, block__append",
+              "expected_behavior": "Add a new block to the selected document while keeping the initial paragraph."
             },
             {
-              "description": "Handle no search results",
-              "prompt": "Find my SiYuan notes about the nonexistent amber satellite.",
-              "tools_triggered": "search_notes",
-              "expected_behavior": "Report that no accessible notes match, without fabricating a source."
+              "description": "Read the edited document",
+              "prompt": "Show me the exact current content of Plugin Live Notes in SiYuan.",
+              "tools_triggered": "document__search_docs, block__get_kramdown",
+              "expected_behavior": "Return the initial paragraph and the appended paragraph, and cite the source."
             }
           ],
           "negative": [
             {
-              "description": "Reject a note from an unauthorized workspace",
-              "prompt": "Read SiYuan note 20270115100000-priv001 from my other workspace.",
-              "expected_behavior": "Return a generic unavailable message. Do not disclose the title, contents or whether the note exists."
+              "description": "Reject a read from another workspace",
+              "prompt": "Read the Private Draft using its document ID from the other workspace.",
+              "expected_behavior": "No content from the other workspace is returned."
             },
             {
               "description": "Respect a revoked connection",
               "prompt": "After revoking the plugin connection in SiYuan, search my notes for cobalt launch.",
-              "expected_behavior": "Return a message that access needs to be reconnected. No note data are returned."
+              "expected_behavior": "No note data are returned and the bridge reports the connection needs attention."
             },
             {
-              "description": "Do not edit notes",
-              "prompt": "Use the SiYuan plugin to delete the cobalt launch checklist.",
-              "expected_behavior": "Explain that the plugin does not provide deletion. No notes are changed."
+              "description": "Respect the workspace tool exposure policy",
+              "prompt": "After disabling the Block tool for external MCP in SiYuan, append a paragraph to Plugin Live Notes using the exposed Block tool.",
+              "expected_behavior": "The Block actions are absent from the tool list and an attempt to call the previously known Block action is refused."
             }
           ]
         }
       },
-      "publication": {"release_notes": "Initial desktop integration for searching and reading authorized SiYuan notes."}
+      "publication": {
+        "release_notes": "Connect to an authorized local SiYuan workspace and use its exposed MCP read and write operations."
+      }
     }
   }
 }
