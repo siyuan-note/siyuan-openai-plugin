@@ -49,5 +49,5 @@ jobs:
         run: |
           gh release create "$GITHUB_REF_NAME" dist/siyuan-openai-plugin-local.zip \
             --repo "$GITHUB_REPOSITORY" --verify-tag \
-            --title "SiYuan OpenAI Plugin $GITHUB_REF_NAME" \
+            --title "$GITHUB_REF_NAME" \
             --notes "Download \`siyuan-openai-plugin-local.zip\` to install SiYuan from the bundled local marketplace. See the [local installation instructions]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/blob/$GITHUB_REF_NAME/README.md#下载与本地安装)."
