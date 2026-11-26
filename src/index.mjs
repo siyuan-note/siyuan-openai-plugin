@@ -7,7 +7,7 @@ import {runConnectionCommand} from "./authorize.mjs";
 import {ConnectionError, connectionIdentity, createLocalFetch, getAccess} from "./connection.mjs";
 import {projectTools} from "./tools.mjs";
 
-const serverInfo = {name: "siyuan", version: "0.1.0"};
+const serverInfo = {name: "siyuan", version: "0.1.1"};
 const toolOptions = {timeout: 180000};
 
 function connectionMessage(error) {

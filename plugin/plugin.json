@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "siyuan",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Connect to an authorized SiYuan workspace on this computer and use its MCP tools.",
   "author": {
     "name": "Yunnan Liandi Technology Co., Ltd.",
@@ -92,7 +92,7 @@
         }
       },
       "publication": {
-        "release_notes": "Connect to an authorized local SiYuan workspace and use its exposed MCP read and write operations."
+        "release_notes": "Connect to an authorized local SiYuan workspace and use its exposed MCP read and write operations. Use the SiYuan icon with transparent padding."
       }
     }
   }
