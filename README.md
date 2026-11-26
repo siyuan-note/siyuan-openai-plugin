@@ -13,8 +13,6 @@ Search, read, and edit notes in a local SiYuan workspace from the ChatGPT deskto
 
 The skill passes the selected path to the CLI with `--workspace`. Commands run with the local user's permissions. OpenAI receives the search terms and note content used in the conversation as context. The SiYuan CLI's restrictions on encrypted notebooks apply.
 
-[Plugin privacy policy](docs/privacy.md) · [Plugin terms of service](docs/terms.md)
-
 ## Build
 
 Use Node.js 22 or later. Run `npm run build` from the repository root to assemble the plugin in `dist/siyuan-cli`. The installed plugin uses the CLI bundled with SiYuan.

@@ -23,8 +23,6 @@
         "capabilities": ["Search and read notes", "Create and edit notes"],
         "websiteURL": "https://b3log.org/siyuan/en/",
         "supportURL": "https://github.com/siyuan-note/siyuan/issues",
-        "privacyPolicyURL": "https://github.com/siyuan-note/siyuan-openai-plugin/blob/main/docs/privacy.md",
-        "termsOfServiceURL": "https://github.com/siyuan-note/siyuan-openai-plugin/blob/main/docs/terms.md",
         "defaultPrompt": [
           "Find my SiYuan notes about the launch checklist.",
           "Create a meeting note in my SiYuan workspace.",

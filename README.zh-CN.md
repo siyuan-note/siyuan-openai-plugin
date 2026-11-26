@@ -13,8 +13,6 @@
 
 技能用 `--workspace` 指定用户选中的路径。命令按本机用户权限运行，会话中使用的搜索词和笔记内容会作为上下文交给 OpenAI。思源 CLI 的加密笔记本限制仍然适用。
 
-[插件隐私政策](docs/privacy.md) · [插件使用条款](docs/terms.md)
-
 ## 构建
 
 需要 Node.js 22 或更高版本。在仓库根目录运行 `npm run build`，插件文件位于 `dist/siyuan-cli`。安装插件的设备使用思源随附的 CLI。
