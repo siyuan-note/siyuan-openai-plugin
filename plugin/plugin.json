@@ -32,9 +32,6 @@
         ],
         "composerIcon": "./assets/siyuan.png",
         "logo": "./assets/siyuan.png"
-      },
-      "publication": {
-        "release_notes": "Search, read, and edit notes with the installed SiYuan CLI in a local desktop conversation."
       }
     }
   }
